@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist", // dirrecion salida
+        "rootDir": "./src", // direccion donde tomara los datos
+        "lib" : ["esnext"], // version de la compilacion
+        "strict" : false, // soporte any
+        "sourceMap" : true, // creacion de los maps
+        "esModuleInterop": true,
+    },
+    "include" : ["src/**/*.ts"] // archivos que compilara
+}
