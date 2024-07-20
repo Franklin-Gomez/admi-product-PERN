@@ -1,6 +1,8 @@
 // archivo principal 
 import server from "./server";
 
-server.listen(4000, () => { 
-    console.log( `desde el puerto 400 `)
+const port = process.env.PORT || 4000
+
+server.listen(port, () => { 
+    console.log( `desde el puerto ${port} `)
 })
