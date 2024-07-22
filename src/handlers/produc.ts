@@ -1,7 +1,9 @@
 import { Request , Response } from 'express'
+import Product from '../models/Product.model'
 
-export const createProducto = (req : Request , res : Response) => { 
+export const createProducto = async  (req : Request , res : Response) => { 
 
-    res.send('hola mundo')
+    const product = await Product.create( req.body )
+    res.json({ data : product })
     
 }
