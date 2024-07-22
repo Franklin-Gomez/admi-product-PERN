@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { createProducto } from './handlers/produc'
 
 const router = Router()
 
@@ -9,10 +10,6 @@ router.get('/hola' , (req , res) => {
 
 })
 
-router.post('/' , (req , res) => { 
-
-    res.json( 'desde post' )
-    
-})
+router.post('/' , createProducto )
 
 export default router
