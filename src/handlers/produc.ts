@@ -99,3 +99,21 @@ export const updateAvailability = async ( req : Request , res : Response) => {
 
 
 }
+
+export const deleteProduct = async ( req : Request , res : Response) => { 
+    
+    // Comprobar registro
+    const { id } = req.params
+    const products = await Product.findByPk( id )
+
+    if(!products) { // error
+        return res.status(404).json({
+            error : 'Producto No Encontrado'
+        })
+    }
+
+    // Eliminar
+    await products.destroy()
+    res.json({data : 'Producto Eliminado'})
+    
+}
