@@ -59,3 +59,23 @@ export const createProducto = async  (req : Request , res : Response) => {
     } 
     
 }
+
+export const updateProduct = async ( req : Request , res : Response) => { 
+    
+    // Comprobar registro
+    const { id } = req.params
+    const products = await Product.findByPk( id )
+
+    if(!products) { // error
+        return res.status(404).json({
+            error : 'Producto No Encontrado'
+        })
+    }
+
+    res.json({ data : products })
+
+    // Actualizar registro
+    await products.update(req.body) // actualizamos la instacia que capturamos
+    await products.save() // insertamos la instancia ala base de datos
+
+}
