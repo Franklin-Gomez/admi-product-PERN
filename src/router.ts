@@ -1,18 +1,14 @@
 import { Router } from 'express'
-import { createProducto } from './handlers/produc'
+import { createProducto, getProducts } from './handlers/produc'
 import { body } from 'express-validator'
 import { handleInputErrors } from './middleware'
 
 const router = Router()
 
 // Routing
-router.get('/hola' , (req , res) => { 
+router.get('/' , getProducts )
 
-    res.json( 'desde get' )
-
-})
-
-router.post('/' ,
+router.post( '/' ,
     
     // Validation
     body('name')
@@ -22,7 +18,7 @@ router.post('/' ,
         .isNumeric().withMessage('valor no valido')
         .notEmpty().withMessage('El precio de Producto no puede ir vacio')
         .custom( value => value > 0).withMessage('Precio n ovalido'),
-        
+
         handleInputErrors,
 
     createProducto )
