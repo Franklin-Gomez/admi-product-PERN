@@ -7,14 +7,14 @@ import { Table , Column , Model , DataType , Default } from 'sequelize-typescrip
 
 class Product extends Model { 
     @Column({ type : DataType.STRING(100)}) // agregandole type
-    name : string
+    declare name : string
 
     @Column({ type : DataType.FLOAT(6,2)}) // FLOAT o INTEGER
-    price : number 
+    declare price : number 
 
     @Default(true) // en caso tal  no  se lo pasa por el body
     @Column({type : DataType.BOOLEAN})
-    availability : boolean
+    declare availability: boolean
 }
 
 export default Product

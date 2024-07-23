@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createProducto, getProducts, getProductById, updateProduct } from './handlers/produc'
+import { createProducto, getProducts, getProductById, updateProduct , updateAvailability } from './handlers/produc'
 import { body, param } from 'express-validator'
 import { handleInputErrors } from './middleware'
 
@@ -48,6 +48,8 @@ router.put('/:id' ,
     handleInputErrors,       
     
 updateProduct )
+
+router.patch('/:id' , updateAvailability )
 
 
 export default router

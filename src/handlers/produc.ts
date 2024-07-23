@@ -79,3 +79,23 @@ export const updateProduct = async ( req : Request , res : Response) => {
     await products.save() // insertamos la instancia ala base de datos
 
 }
+
+export const updateAvailability = async ( req : Request , res : Response) => { 
+    
+    // Comprobar registro
+    const { id } = req.params
+    const products = await Product.findByPk( id )
+
+    if(!products) { // error
+        return res.status(404).json({
+            error : 'Producto No Encontrado'
+        })
+    }
+
+    // Actualizar registro
+    products.availability = !products.dataValues.availability // cambio de forma automatica al valor contrario que tenga en la db
+    await products.save() // insertamos la instancia ala base de datos
+    res.json({data : products})
+
+
+}
