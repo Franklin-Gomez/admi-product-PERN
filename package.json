@@ -4,7 +4,8 @@
   "description": "Rest API's con Express y TypeScript",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "jest" : "jest"
   },
   "author": "D.Gomez",
   "license": "ISC",
