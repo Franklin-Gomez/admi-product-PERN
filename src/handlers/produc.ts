@@ -1,6 +1,5 @@
 import { Request , Response } from 'express'
 import Product from '../models/Product.model'
-import { param } from 'express-validator'
 
 export const getProducts = async ( req : Request , res : Response ) => { 
 
@@ -15,6 +14,7 @@ export const getProducts = async ( req : Request , res : Response ) => {
         })
 
         res.json({ data : products })
+        return;
 
     } catch (error) {
         console.log( error )

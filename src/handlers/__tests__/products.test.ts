@@ -69,3 +69,11 @@ describe('POST /api/products',() => {
     
     })
 })
+
+//=========================================================
+
+describe('GET /api/products ' , () => { 
+    it( 'get a JSON response with products ' , async () => { 
+        const response  = await request(server).get('/api/products/')
+    })
+})
