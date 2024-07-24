@@ -1,6 +1,14 @@
-//primera prueba
-describe('Nuestro primer test' , () => {  //  primer test , nombre del test
-    it('Debe revisar que 1 + 1 sean 2' , () => {  // descripcion del test
-        expect( 1 + 1).toBe( 2 ) // expect sera la prueba , tobe sera el resultado esperado
+import server from "../server"
+import request from "supertest"
+
+describe('GET /api' , () => { 
+    it('should send back a json response' , async () => { 
+        const res = await request(server).get('/api')
+        //console.log( res ) // ver respuesta
+
+
+        expect(res.status).toBe(200) // status 200 es OK
+        expect(res.headers['content-type']).toMatch(/json/) // que la respuesta sea tipo .json
+        expect(res.body.msg).toBe('desde api')
     })
 })

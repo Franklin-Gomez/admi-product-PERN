@@ -9,7 +9,7 @@ class Product extends Model {
     @Column({ type : DataType.STRING(100)}) // agregandole type
     declare name : string
 
-    @Column({ type : DataType.FLOAT(6,2)}) // FLOAT o INTEGER
+    @Column({ type : DataType.FLOAT}) // FLOAT o INTEGER
     declare price : number 
 
     @Default(true) // en caso tal  no  se lo pasa por el body

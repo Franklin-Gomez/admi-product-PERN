@@ -10,7 +10,7 @@ async function  connectDB () {
         
         await db.authenticate() // verificamos que la connectio is OK
         db.sync()
-        console.log(colors.blue.bold('Conexion exitosa a la DB'))
+        //console.log(colors.blue.bold('Conexion exitosa a la DB'))
 
     } catch (error) {
         //console.log( error );
@@ -27,6 +27,10 @@ const server = express()
 server.use(express.json())
 
 server.use('/api/products', router )
+
+server.get('/api' , (req , res) => { 
+    res.json({msg : 'desde api'})
+}) 
 
 
 export default server
