@@ -41,8 +41,6 @@ export const getProductById = async ( req : Request , res : Response ) => {
     } catch (error) {
         console.log( error )
     }
-
-    res.json( 'desde get One' )
 }
 
 export const createProducto = async  (req : Request , res : Response) => { 
