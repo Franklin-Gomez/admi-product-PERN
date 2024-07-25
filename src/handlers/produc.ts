@@ -19,8 +19,6 @@ export const getProducts = async ( req : Request , res : Response ) => {
     } catch (error) {
         console.log( error )
     }
-
-    res.json( 'desde get' )
 }
 
 export const getProductById = async ( req : Request , res : Response ) => { 

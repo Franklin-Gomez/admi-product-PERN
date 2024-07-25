@@ -85,6 +85,8 @@ describe('GET /api/products ' , () => {
     })
 })
 
+//=========================================================
+
 describe('GET /api/products/:id' , () => { 
     it('should return a 404 response for a non-existent product' , async () => { 
         const productId = 2000
@@ -115,6 +117,8 @@ describe('GET /api/products/:id' , () => {
         expect(response.body).toHaveProperty('data')
     })
 })
+
+//=========================================================
 
 describe('PUT /api/products/:id' , () => { 
 
@@ -200,6 +204,34 @@ describe('PUT /api/products/:id' , () => {
         expect(response.body).not.toHaveProperty('error')
     })
 })
+
+//=========================================================
+
+describe('PATCH /api/products/:id', () => {
+    it('should return a 404 response for a non-existing product' ,  async () => { 
+        const response = await request(server).patch('/api/products/10')
+
+        expect(response.status).toBe(404)
+        expect(response.body.error).toBe('Producto No Encontrado')
+
+        expect(response.status).not.toBe(200)
+        expect(response.body).not.toHaveProperty('data')
+
+    })
+
+    it('should update the pdoruc availability' , async () => { 
+        const response = await request(server).patch('/api/products/1').send({
+            "id": 1,
+            "name": "Mouse - Testing",
+            "price": 550
+        })
+
+        expect(response.status).toBe(200)
+        expect(response.body).toHaveProperty('data')
+    })
+})
+
+//=========================================================
 
 describe('DELETE /api/products/:id',() => { 
     it('should check a valid ID' , async () => { 
