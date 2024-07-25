@@ -115,3 +115,88 @@ describe('GET /api/products/:id' , () => {
         expect(response.body).toHaveProperty('data')
     })
 })
+
+describe('PUT /api/products/:id' , () => { 
+
+    it(' should check a valid ID in the URL', async () => { 
+        const response = await request(server).put('/api/products/not-valid-url').send({  
+            id: 1,
+            name: "Mouse - Testing",
+            availability : true,
+            price: 50
+        })
+
+        expect(response.status).toBe(400)
+        expect(response.body).toHaveProperty('errors')
+        expect(response.body.errors).toHaveLength(1)
+        expect(response.body.errors[0].msg).toMatch("ID no valido")
+
+        expect(response.status).not.toBe(200)
+        expect(response.body).not.toHaveProperty('data')
+    })
+
+
+
+    it(' should display validation error messages when updating a product', async () => { 
+        const response = await request(server).put('/api/products/1').send({})
+
+        expect(response.status).toBe(400)
+        expect(response.body).toHaveProperty('errors')
+        expect(response.body.errors).toHaveLength(5)
+        expect(response.body.errors[0].msg).toMatch("El nombre de Producto no puede ir vacio")
+
+        expect(response.status).not.toBe(200)
+        expect(response.body).not.toHaveProperty('data')
+    })
+
+    it(' should validate that the price is greater than 0', async () => { 
+        const response = await request(server).put('/api/products/1').send({  
+          id: 1,
+          name: "Mouse - Testing",
+          availability : true,
+          price: -50
+        })
+
+        expect(response.status).toBe(400)
+        expect(response.body).toHaveProperty('errors')
+        expect(response.body.errors).toHaveLength(1)
+        expect(response.body.errors[0].msg).toMatch("Precio n ovalido")
+
+        expect(response.status).not.toBe(200)
+        expect(response.body).not.toHaveProperty('data')
+    })
+
+    
+    it(' should return a 404 for a non-existent product', async () => { 
+        const response = await request(server).put('/api/products/400').send({  
+          id: 1,
+          name: "Mouse - Testing",
+          availability : true,
+          price: 350
+        })
+
+        expect(response.status).toBe(404)
+        expect(response.body).toHaveProperty('error')
+        expect(response.body).toMatchObject({error : "Producto No Encontrado"})
+        expect(response.body.error).toMatch("Producto No Encontrado")
+
+        expect(response.status).not.toBe(200)
+        expect(response.body).not.toHaveProperty('data')
+    })
+
+    it(' should return a 404 for a non-existent product', async () => { 
+        const response = await request(server).put('/api/products/1').send({  
+          id: 1,
+          name: "Mouse - Testing - actualizado",
+          availability : true,
+          price: 350
+        })
+
+        expect(response.status).toBe(200)
+        expect(response.body).toHaveProperty('data')
+        expect(response.body.data).toHaveProperty('createdAt')
+
+        expect(response.status).not.toBe(404)
+        expect(response.body).not.toHaveProperty('error')
+    })
+})
