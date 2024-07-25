@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1721922422191" clover="3.2.0">
-  <project timestamp="1721922422191" name="All files">
-    <metrics statements="89" coveredstatements="85" conditionals="5" coveredconditionals="5" methods="11" coveredmethods="11" elements="105" coveredelements="101" complexity="0" loc="89" ncloc="89" packages="5" files="6" classes="6"/>
+<coverage generated="1721925108550" clover="3.2.0">
+  <project timestamp="1721925108550" name="All files">
+    <metrics statements="90" coveredstatements="87" conditionals="5" coveredconditionals="5" methods="11" coveredmethods="11" elements="106" coveredelements="103" complexity="0" loc="90" ncloc="90" packages="5" files="6" classes="6"/>
     <package name="src">
-      <metrics statements="29" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="30" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="router.ts" path="E:\frank\Documents\Programacion\Udemy\React y TypeScript\Administrador de Productos PERN\rest_api_node_ts_server\src\router.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
@@ -22,15 +22,16 @@
         <line num="69" count="2" type="stmt"/>
       </file>
       <file name="server.ts" path="E:\frank\Documents\Programacion\Udemy\React y TypeScript\Administrador de Productos PERN\rest_api_node_ts_server\src\server.ts">
-        <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
@@ -116,12 +117,12 @@
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Product.model.ts" path="E:\frank\Documents\Programacion\Udemy\React y TypeScript\Administrador de Productos PERN\rest_api_node_ts_server\src\models\Product.model.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
       </file>
     </package>
   </project>

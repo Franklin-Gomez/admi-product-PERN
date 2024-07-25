@@ -5,7 +5,7 @@ import db from "./config/db";
 import colors from 'colors';
 
 // Conectar a base de datos
-async function  connectDB () { 
+export async function  connectDB () { 
     try {
         
         await db.authenticate() // verificamos que la connectio is OK
