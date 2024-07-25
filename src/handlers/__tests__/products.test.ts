@@ -200,3 +200,29 @@ describe('PUT /api/products/:id' , () => {
         expect(response.body).not.toHaveProperty('error')
     })
 })
+
+describe('DELETE /api/products/:id',() => { 
+    it('should check a valid ID' , async () => { 
+        const response = await request(server).delete('/api/products/no-valid-id').send({})
+
+        expect(response.status).toBe(400)
+        expect(response.body).toHaveProperty('errors')
+        expect(response.body.errors[0].msg).toMatch('ID no valido')
+    })
+
+    it('should return a 404 response for a non-existent product' , async () => { 
+        const response = await request(server).delete('/api/products/200').send({})
+
+        expect(response.status).toBe(404)
+        expect(response.body).toHaveProperty('error')
+        expect(response.body.error).toMatch('Producto No Encontrado')
+    })
+
+    it('should delete the product' , async () => { 
+        const response = await request(server).delete('/api/products/1').send({})
+
+        expect(response.status).toBe(200)
+        expect(response.body).toHaveProperty('data')
+        expect(response.body.data).toMatch('Producto Eliminado')
+    })
+})
