@@ -238,6 +238,38 @@ router.patch('/:id' ,
     
 updateAvailability )
 
+/**
+* @swagger
+* /api/products/{id}:
+*      delete:
+*          summary: Delete Product  by given a ID
+*          tags:
+*             - Products
+*          description: Returns a confirmation message
+*          parameters:
+*             - in: path 
+*               name: id
+*               descripcion: The ID of the product to delete 
+*               required: true
+*               schema:
+*                 type: integer
+*          responses:
+*               200:
+*                   description: Product delete successfully
+*                   content:
+*                       application/json:
+*                           schema:                           
+*                               type: object
+*                               properties:
+*                                   data:
+*                                       type: string              
+*                                       example: "product deleted"
+*               400:
+*                   description : ID no valido
+*               404:
+*                   description : Product Not Found
+*/
+
 router.delete('/:id' , 
     
     param('id').isInt().withMessage('ID no valido'),
