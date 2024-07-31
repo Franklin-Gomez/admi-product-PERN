@@ -6,7 +6,7 @@ import colors from 'colors';
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec , { swaggerUiOptions } from "./config/swagger";
 import cors , { CorsOptions} from 'cors'
-
+import morgan from 'morgan'
 
 // Conectar a base de datos
 export async function  connectDB () { 
@@ -44,12 +44,13 @@ const corsOption : CorsOptions = {
         
     }
 }
-
 server.use( cors( corsOption ))
 
 
 // leer datos de formularios
 server.use(express.json())
+
+server.use(morgan('dev'))
 
 server.use('/api/products', router )
 
