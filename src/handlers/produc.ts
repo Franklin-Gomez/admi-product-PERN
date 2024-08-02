@@ -9,8 +9,8 @@ export const getProducts = async ( req : Request , res : Response ) => {
             order: [ 
                 ['price' , 'DESC'] 
             ],
-            limit: 2,
-            attributes: { exclude : [ 'createdAt' , 'updatedAt' , 'availability']}
+            //limit: 2,
+            attributes: { exclude : [ 'createdAt' , 'updatedAt']}
         })
 
         res.json({ data : products })
@@ -26,7 +26,9 @@ export const getProductById = async ( req : Request , res : Response ) => {
     try {
 
         const { id } = req.params
-        const products = await Product.findByPk( id )
+        const products = await Product.findByPk( id , {
+            attributes : { exclude : [ 'createdAt' , 'updatedAt']}
+        } )
 
         if(!products) { // error
             return res.status(404).json({
