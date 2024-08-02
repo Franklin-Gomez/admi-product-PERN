@@ -12,5 +12,6 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
-    "include" : ["src/**/*.ts"] // archivos que compilara
+    "include" : ["src/**/*.ts"], // archivos que compilara
+    "exclude" : ["src/**/*.test.ts"] // archivos que no compilara
 }
